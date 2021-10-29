@@ -1,9 +1,9 @@
 This repo is a fork from main repo and will usually have new features bundled faster than main repo (and maybe bundle some bugs, too).
 
 # Unofficial Facebook Chat API
-<a href="https://www.npmjs.com/package/fb-chat-api"><img alt="npm version" src="https://img.shields.io/npm/v/fb-chat-api.svg?style=flat-square"></a>
+<a href="https://www.npmjs.com/package/fca-unofficial-force"><img alt="npm version" src="https://img.shields.io/npm/v/fb-chat-api.svg?style=flat-square"></a>
 <img alt="version" src="https://img.shields.io/github/package-json/v/fb-chat-api/fb-chat-api?label=github&style=flat-square">
-<a href="https://www.npmjs.com/package/fb-chat-api"><img src="https://img.shields.io/npm/dm/fb-chat-api.svg?style=flat-square" alt="npm downloads"></a>
+<a href="https://www.npmjs.com/package/fca-unofficial-force"><img src="https://img.shields.io/npm/dm/fb-chat-api.svg?style=flat-square" alt="npm downloads"></a>
 
 Facebook now has an official API for chat bots [here](https://developers.facebook.com/docs/messenger-platform).
 
@@ -16,16 +16,16 @@ See [below](#projects-using-this-api) for projects using this API.
 See the [full changelog](/CHANGELOG.md) for release details.
 
 ## Install
-If you just want to use fb-chat-api, you should use this command:
+If you just want to use fca-unofficial-force, you should use this command:
 ```bash
-npm install fb-chat-api
+npm install fca-unofficial-force
 ```
-It will download `fb-chat-api` from NPM repositories
+It will download `fca-unofficial-force` from NPM repositories
 
 ### Bleeding edge
 If you want to use bleeding edge (directly from github) to test new features or submit bug report, this is the command for you:
 ```bash
-npm install fb-chat-api/fb-chat-api
+npm install JustGonDev/fca-unofficial-force
 ```
 
 ## Testing your bots
@@ -33,7 +33,7 @@ If you want to test your bots without creating another account on Facebook, you 
 
 ## Example Usage
 ```javascript
-const login = require("fb-chat-api");
+const login = require("fca-unofficial-force");
 
 // Create simple echo bot
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
