@@ -1,9 +1,8 @@
 This repo is a fork from main repo and will usually have new features bundled faster than main repo (and maybe bundle some bugs, too).
-
 # Unofficial Facebook Chat API
-<a href="https://www.npmjs.com/package/fca-unofficial-force"><img alt="npm version" src="https://img.shields.io/npm/v/fb-chat-api.svg?style=flat-square"></a>
-<img alt="version" src="https://img.shields.io/github/package-json/v/fb-chat-api/fb-chat-api?label=github&style=flat-square">
-<a href="https://www.npmjs.com/package/fca-unofficial-force"><img src="https://img.shields.io/npm/dm/fb-chat-api.svg?style=flat-square" alt="npm downloads"></a>
+<a href="https://www.npmjs.com/package/fca-unofficial-force"><img alt="npm version" src="https://img.shields.io/npm/v/fca-unofficial-force.svg?style=flat-square"></a>
+<img alt="version" src="https://img.shields.io/github/package-json/v/JustGonDev/fca-unofficial-force?label=github&style=flat-square">
+<a href="https://www.npmjs.com/package/fca-unofficial-force"><img src="https://img.shields.io/npm/dm/fca-unofficial-force.svg?style=flat-square" alt="npm downloads"></a>
 
 Facebook now has an official API for chat bots [here](https://developers.facebook.com/docs/messenger-platform).
 
@@ -72,7 +71,7 @@ __Tip__: to find your own ID, you can look inside the cookies. The `userID` is u
 
 __Example (Basic Message)__
 ```js
-const login = require("fb-chat-api");
+const login = require("fca-unofficial-force");
 
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
     if(err) return console.error(err);
@@ -85,7 +84,7 @@ login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
 
 __Example (File upload)__
 ```js
-const login = require("fb-chat-api");
+const login = require("fca-unofficial-force");
 
 login({email: "FB_EMAIL", password: "FB_PASSWORD"}, (err, api) => {
     if(err) return console.error(err);
@@ -109,7 +108,7 @@ __Example__
 
 ```js
 const fs = require("fs");
-const login = require("fb-chat-api");
+const login = require("fca-unofficial-force");
 
 var credentials = {email: "FB_EMAIL", password: "FB_PASSWORD"};
 
@@ -133,7 +132,7 @@ __Example__
 
 ```js
 const fs = require("fs");
-const login = require("fb-chat-api");
+const login = require("fca-unofficial-force");
 
 // Simple echo bot. It will repeat everything that you say.
 // Will stop when you say '/stop'
