@@ -103,7 +103,7 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
   var mqttClient = ctx.mqttClient;
 
   mqttClient.on('error', function (err) {
-    //log.error("listenMqtt", err);
+    console.error("listenMqtt", err);
     mqttClient.end();
     if (ctx.globalOptions.autoReconnect) {
       getSeqID();
@@ -160,7 +160,8 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
     try {
       var jsonMessage = JSON.parse(message);
     } catch (ex) {
-      //return log.error("listenMqtt", ex);
+      return;
+      //console.error("listenMqtt", "JSON conversion failed");
     }
     if (topic === "/t_ms") {
       if (ctx.tmsWait && typeof ctx.tmsWait == "function") {
@@ -452,7 +453,7 @@ function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {
                 };
               })
               .catch((err) => {
-                //log.error("forcedFetch", err);
+                console.error("forcedFetch", err);
               })
               .finally(function () {
                 if (ctx.globalOptions.autoMarkDelivery) {
@@ -505,7 +506,7 @@ function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {
         case "change_thread_theme":
         case "change_thread_nickname":
         case "change_thread_icon":
-        case "change_thread_admins":
+          break;
         case "group_poll":
           var fmtMsg;
           try {
@@ -642,11 +643,11 @@ function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {
                   });
               }
             } else {
-              //log.error("forcedFetch", fetchData);
+              console.error("forcedFetch", fetchData);
             }
           })
           .catch((err) => {
-            //log.error("forcedFetch", err);
+            console.error("forcedFetch", err);
           });
       }
       break;
@@ -676,12 +677,12 @@ function markDelivery(ctx, api, threadID, messageID) {
   if (threadID && messageID) {
     api.markAsDelivered(threadID, messageID, (err) => {
       if (err) {
-        //log.error("markAsDelivered", err);
+        console.error("markAsDelivered", err);
       } else {
         if (ctx.globalOptions.autoMarkRead) {
           api.markAsRead(threadID, (err) => {
             if (err) {
-              //log.error("markAsDelivered", err);
+              console.error("markAsDelivered", err);
             }
           });
         }
@@ -721,7 +722,7 @@ module.exports = function (defaultFuncs, api, ctx) {
         }
       })
       .catch((err) => {
-        //log.error("getSeqId", err);
+        console.error("getSeqId", err);
         if (utils.getType(err) == "Object" && err.error === "Not logged in") {
           ctx.loggedIn = false;
         }
