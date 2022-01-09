@@ -31,7 +31,12 @@ function formatEventReminders(reminder) {
 }
 
 function formatThreadGraphQLResponse(data) {
-  var messageThread = data.o0.data.message_thread;
+  try{
+    var messageThread = data.o0.data.message_thread;
+  } catch (err){
+    console.error("GetThreadInfoGraphQL", "Can't get this thread info!");
+    return {err: err};
+  }
   var threadID = messageThread.thread_key.thread_fbid
     ? messageThread.thread_key.thread_fbid
     : messageThread.thread_key.other_user_id;
@@ -186,7 +191,7 @@ module.exports = function(defaultFuncs, api, ctx) {
         // failure one.
         // @TODO What do we do in this case?
         if (resData[resData.length - 1].error_results !== 0) {
-          throw new Error("well darn there was an error_result");
+          console.error("GetThreadInfo", "Well darn there was an error_result");
         }
 
         callback(null, formatThreadGraphQLResponse(resData[0]));
